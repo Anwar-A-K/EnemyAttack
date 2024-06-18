@@ -3,9 +3,38 @@
 
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    bool isPlayerInRange;
+    bool isPlayerAttacking;
+    bool isPlayerDefending;
+    int playerHealth;
+
+    cout << "Enter player health: ";
+    cin >> playerHealth;
+    cout << endl << "Is player in range? ";
+    cin >> isPlayerInRange;
+    cout << endl << "Is player attacking? ";
+    cin >> isPlayerAttacking;
+    cout << endl << "Is player defending? ";
+    cin >> isPlayerDefending;
+    cout << endl;
+
+    if (isPlayerInRange && !isPlayerAttacking) {
+        cout << "The enemy should attack" << endl;
+    }
+    if (isPlayerInRange && isPlayerDefending) {
+        cout << "The enemy should hold" << endl;
+    }
+    if (isPlayerInRange && playerHealth < 20 && isPlayerAttacking) {
+        cout << "player should deliver a rage attack" << endl;
+    }
+    if (isPlayerInRange && !isPlayerDefending && playerHealth == 100 || playerHealth < 10) {
+        cout << "enemy should do a special ability attack" << endl;
+    }
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
